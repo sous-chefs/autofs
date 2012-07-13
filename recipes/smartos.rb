@@ -17,9 +17,6 @@
 # limitations under the License.
 #
 
-AUTO_MASTER_PATH = node[:autofs][:auto_master_path]
-
-
 service "svc:/network/rpc/bind:default" do
   supports [ :enable, :disable, :restart ]
   action [ :disable ]
@@ -37,7 +34,7 @@ service "autofs" do
   action [ :enable ]
 end
 
-template "#{AUTO_MASTER_PATH}" do
+template "#{node[:autofs][:auto_master_path]}" do
   source "auto_master.erb"
   owner "root"
   group "root"

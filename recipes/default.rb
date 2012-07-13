@@ -19,7 +19,7 @@
 
 
 case node[:platform]
-when "solaris2"
+when "solaris2", "smartos"
   include_recipe "autofs::smartos"
 else
   include_recipe "autofs::linux"
