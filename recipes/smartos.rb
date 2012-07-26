@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: autofs
-# Recipe:: default
+# Recipe:: smartos
 #
 # Copyright ModCloth, Inc.
 #
@@ -29,28 +29,4 @@ service "svc:/network/rpc/bind:default" do
   not_if "svcs autofs | grep online && grep net /etc/auto_master"
 end
 
-service "autofs" do
-  supports [ :enable, :disable, :restart ]
-  action [ :enable ]
-end
-
-node[:autofs][:external_files].each do |filename,file_content|
-  file filename do
-    content file_content
-    owner 'root'
-    group 'root'
-    mode 0644
-  end
-end
-
-template "#{node[:autofs][:auto_master_path]}" do
-  source "auto_master.erb"
-  owner "root"
-  group "root"
-  mode "0644"
-  notifies :restart, resources(:service => "autofs"), :immediately
-  variables(
-    :auto_master_entries => node[:autofs][:auto_master_entries],
-    :external_files => node[:autofs][:external_files]
-  )
-end
+include_recipe "autofs::common"

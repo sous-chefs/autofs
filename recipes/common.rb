@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: autofs
-# Recipe:: linux
+# Recipe:: common
 #
 # Copyright ModCloth, Inc.
 #
@@ -17,18 +17,28 @@
 # limitations under the License.
 #
 
-package "nfs-common"
-package "autofs"
+service "autofs" do
+  supports [ :start, :stop, :restart, :reload, :status ]
+  action [ :enable, :start ]
+end
 
-include_recipe "autofs::common"
-
-node[:autofs][:maps].each do |map, args|
-  template args[:source].gsub(/file:/, '') do
-    owner "root"
-    group "root"
+node[:autofs][:external_files].each do |filename,file_content|
+  file filename do
+    content file_content.dup
+    owner 'root'
+    group 'root'
     mode 0644
-    source "auto.map.erb"
-    variables(:keys => args[:keys])
-    notifies :reload, resources(:service => "autofs"), :immediately
   end
+end
+
+template "#{node[:autofs][:auto_master_path]}" do
+  source "auto_master.erb"
+  owner "root"
+  group "root"
+  mode "0644"
+  notifies :reload, resources(:service => "autofs"), :immediately
+  variables(
+    :auto_master_entries => node[:autofs][:auto_master_entries],
+    :external_files => node[:autofs][:external_files]
+  )
 end
