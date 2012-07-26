@@ -28,4 +28,4 @@ end
 
 default[:autofs][:auto_master_entries] = []
 default[:autofs][:maps] = []
-default[:autofs][:external_files] = []
+default[:autofs][:external_files] = {}
