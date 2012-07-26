@@ -23,7 +23,7 @@ service "autofs" do
 end
 
 node[:autofs][:external_files].each do |filename,file_content|
-  file filename do
+  file filename.dup do
     content file_content.dup
     owner 'root'
     group 'root'
