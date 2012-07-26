@@ -24,7 +24,7 @@ end
 
 node[:autofs][:external_files].each do |filename,file_content|
   file filename.dup do
-    content file_content.dup
+    content file_content.dup << "\n"
     owner 'root'
     group 'root'
     mode 0644
