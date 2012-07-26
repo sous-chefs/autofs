@@ -4,3 +4,6 @@
 <% @auto_master_entries.each do |entry| %>
 <%= entry %>
 <% end %>
+<% @external_files.keys.each do |filename| %>
+/-    <%= filename %>
+<% end %>
