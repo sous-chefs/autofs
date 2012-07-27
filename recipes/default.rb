@@ -17,10 +17,9 @@
 # limitations under the License.
 #
 
-
 case node[:platform]
 when "solaris2", "smartos"
   include_recipe "autofs::smartos"
 else
-  include_recipe "autofs::linux"
+  Chef::Log.error("The 'autofs' cookbook is not supported on this platform.")
 end
