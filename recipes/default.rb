@@ -3,6 +3,7 @@
 # Recipe:: default
 #
 # Copyright ModCloth, Inc.
+# Copyright (C) 2013 University of Derby
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,9 +18,11 @@
 # limitations under the License.
 #
 
-case node[:platform]
-when "solaris2", "smartos"
-  include_recipe "autofs::smartos"
+case
+when platform?("solaris2", "smartos")
+    include_recipe "autofs::smartos"
+when platform_family?("debian", "fedora", "rhel")
+    include_recipe "autofs::linux"
 else
-  Chef::Log.error("The 'autofs' cookbook is not supported on this platform.")
+    Chef::Log.error("The 'autofs' cookbook is not supported on this platform.")
 end

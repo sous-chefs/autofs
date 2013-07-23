@@ -3,6 +3,7 @@
 # Recipe:: linux
 #
 # Copyright ModCloth, Inc.
+# Copyright (C) 2013 University of Derby
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,18 +18,24 @@
 # limitations under the License.
 #
 
-package "nfs-common"
+case
+when platform_family?("fedora", "rhel")
+    package "nfs-utils"
+when platform_family?("debian")
+    package "nfs-common"
+end
+
 package "autofs"
 
 include_recipe "autofs::common"
 
 node[:autofs][:maps].each do |map, args|
-  template args[:source].gsub(/file:/, '') do
-    owner "root"
-    group "root"
-    mode 0644
-    source "auto.map.erb"
-    variables(:keys => args[:keys])
-    notifies :reload, resources(:service => "autofs"), :immediately
-  end
+    template args[:source].gsub(/file:/, '') do
+        owner "root"
+        group "root"
+        mode 0644
+        source "auto.map.erb"
+        variables(:keys => args[:keys])
+        notifies :reload, resources(:service => "autofs"), :immediately
+    end
 end
