@@ -30,8 +30,8 @@ Example role configuration:
     description "Configure nfs partitions"
     default_attributes(
       "autofs" => {
-        "nfs" => {
-          "maps" => {
+        "maps" => {
+          "nfs" => {
             "keys" => {
               "/nfs" => {
                 "export" => "/exports/nfs",
@@ -66,7 +66,6 @@ Called by default recipe for smartos & solaris. May be included in a run list di
 ## common
 
 Configuration common to all platforms
-
 
 License and Author
 ==================
