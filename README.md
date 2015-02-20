@@ -1,27 +1,40 @@
-Description
-===========
+AutoFS Cookbook
+===============
+The AutoFS cookbook is a library cookbook that provides resource primitives for
+use in recipes.
 
-Cookbook to install and configure autofs.
-Prerequisite packages are also installed.
+Scope
+-----
+This cookbook configures clients that use autofs
+See: http://linux.die.net/man/8/automount
+ 
+This cookbook does not concern itself with managing an NFS server.
 
 Requirements
-============
+------------
+- Chef 11 or higher
+- Ruby 1.9 or higher (preferably from the Chef full-stack installer)
+- Network accessible package repositories
 
-Chef 0.10.10+ and Ohai 6.10+ for `platform_family` use.
-
-## Platform
-
+ Platform
+---------
 * Debian, Ubuntu
 * CentOS, Red Hat, Fedora, Scientific, Amazon, XenServer
 * SmartOS, Solaris2
 
+
 Attributes 
 ============
 
-See `attributes/default.rb` for default values.
+#TODO: this section needs fully filling out
+For now please consult attributes/default.rb for attirbutes you can set. 
 
 Usage
 =====
+
+
+#TODO: get rid of this oh my word
+
 Simply include the `autofs` recipe where ever you would like autofs installed.
 
 Example role configuration:
@@ -55,26 +68,14 @@ Recipes
 
 Include the default recipe in a run list, to install & configure autofs.
 
-## linux
-
-Called by default recipe for linux platforms. May be included in a run list directly.
-
-## smartos
-
-Called by default recipe for smartos & solaris. May be included in a run list directly.
-
-## common
-
-Configuration common to all platforms
-
 License and Author
 ==================
 
-* Author: Seth Kingry (<s.kingry@modcloth.com>)
+* Author: Dan Webb (<d.webb@derby.ac.uk>)
 * Author: Luke Bradbury (<luke.bradbury@derby.ac.uk>)
 
-Copyright: 2012, ModCloth, Inc.
-Copyright: 2013, University of Derby
+
+Copyright: 2015, University of Derby
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
