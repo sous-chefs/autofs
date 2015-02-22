@@ -32,13 +32,13 @@ For now please consult attributes/default.rb for attirbutes you can set.
 Usage
 =====
 
-`
+```
 autofs 'bucket' do 
   sever_name 'bignfs-server.home'
   mount_options '-fstype=nfs4'
   source_file bucket
 end
-`
+```
 
 This will create a mount at /bucket with the mount options -fstype=nfs4 
 on the server big-server.home. This information will be set in the file
