@@ -32,34 +32,18 @@ For now please consult attributes/default.rb for attirbutes you can set.
 Usage
 =====
 
+`
+autofs 'bucket' do 
+  sever_name 'bignfs-server.home'
+  mount_options '-fstype=nfs4'
+  source_file bucket
+end
+`
 
-#TODO: get rid of this oh my word
+This will create a mount at /bucket with the mount options -fstype=nfs4 
+on the server big-server.home. This information will be set in the file
+/etc/auto.bucket. A entry in auto.master will be created for this file.
 
-Simply include the `autofs` recipe where ever you would like autofs installed.
-
-Example role configuration:
-
-    name "autofs"
-    description "Configure nfs partitions"
-    default_attributes(
-      "autofs" => {
-        "maps" => {
-          "nfs" => {
-            "keys" => {
-              "/nfs" => {
-                "export" => "/exports/nfs",
-                "server" => "nfs.example.com",
-                "options" => "-fstype=nfs"
-              }
-            },
-            "source" => "/etc/auto.nfs"
-          }
-        }
-      }
-    )
-    run_list(
-      "recipe[autofs]"
-    )
 
 Recipes
 =======
