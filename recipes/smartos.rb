@@ -17,16 +17,16 @@
 # limitations under the License.
 #
 
-service "svc:/network/rpc/bind:default" do
-  supports [ :enable, :disable, :restart ]
-  action [ :disable ]
-  not_if "svcs autofs | grep online && grep net /etc/auto_master"
+service 'svc:/network/rpc/bind:default' do
+  supports [:enable, :disable, :restart]
+  action [:disable]
+  not_if 'svcs autofs | grep online && grep net /etc/auto_master'
 end
 
-service "svc:/network/rpc/bind:default" do
-  supports [ :enable, :disable, :restart ]
-  action [ :enable ]
-  not_if "svcs autofs | grep online && grep net /etc/auto_master"
+service 'svc:/network/rpc/bind:default' do
+  supports [:enable, :disable, :restart]
+  action [:enable]
+  not_if 'svcs autofs | grep online && grep net /etc/auto_master'
 end
 
-include_recipe "autofs::common"
+include_recipe 'autofs::common'

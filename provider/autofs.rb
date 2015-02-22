@@ -21,23 +21,21 @@ property :server_name, String
 property :mount_options, String
 property :source, String
 
-
 sevice 'autofs' do
-  supports [ :start, :stop, :status, :reload ]
-  action [ :enable, :start ] 
+  supports [:start, :stop, :status, :reload]
+  action [:enable, :start]
 end
 
-# put files on disk
-# with a hash of each export 
+#  put files on disk
+# with a hash of each export
 
 # export_name e.g. /nfs, /psreports
 export_name
 
-# server_name e.g. awesome-nfs-server.home
+#  server_name e.g. awesome-nfs-server.home
 server_name
 
-
-# mount_options e.g. -fstype=ext2 
+#  mount_options e.g. -fstype=ext2
 # for more examples see: http://man7.org/linux/man-pages/man5/autofs.5.html
 mount_options
 
@@ -46,6 +44,3 @@ mount_options
 # name
 # This defaults to auto.nfs
 source_file
-
-
-

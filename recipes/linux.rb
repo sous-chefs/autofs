@@ -19,23 +19,23 @@
 #
 
 case
-when platform_family?("fedora", "rhel")
-    package "nfs-utils"
-when platform_family?("debian")
-    package "nfs-common"
+when platform_family?('fedora', 'rhel')
+  package 'nfs-utils'
+when platform_family?('debian')
+  package 'nfs-common'
 end
 
-package "autofs"
+package 'autofs'
 
-include_recipe "autofs::common"
+include_recipe 'autofs::common'
 
-node[:autofs][:maps].each do |map, args|
-    template args[:source].gsub(/file:/, '') do
-        owner "root"
-        group "root"
-        mode 0644
-        source "auto.map.erb"
-        variables(:keys => args[:keys])
-        notifies :reload, resources(:service => "autofs"), :immediately
-    end
+node[:autofs][:maps].each do |_map, args|
+  template args[:source].gsub(/file:/, '') do
+    owner 'root'
+    group 'root'
+    mode 0644
+    source 'auto.map.erb'
+    variables(keys: args[:keys])
+    notifies :reload, resources(service: 'autofs'), :immediately
+  end
 end

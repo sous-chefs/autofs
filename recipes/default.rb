@@ -19,10 +19,10 @@
 #
 
 case
-when platform?("solaris2", "smartos")
-    include_recipe "autofs::smartos"
-when platform_family?("debian", "fedora", "rhel")
-    include_recipe "autofs::linux"
+when platform?('solaris2', 'smartos')
+  include_recipe 'autofs::smartos'
+when platform_family?('debian', 'fedora', 'rhel')
+  include_recipe 'autofs::linux'
 else
-    Chef::Log.error("The 'autofs' cookbook is not supported on this platform.")
+  Chef::Log.error("The 'autofs' cookbook is not supported on this platform.")
 end

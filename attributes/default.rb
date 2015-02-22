@@ -20,10 +20,10 @@
 # General attributes
 
 case platform
-when "solaris2", "smartos"
-  default[:autofs][:auto_master_path] = "/etc/auto_master"
+when 'solaris2', 'smartos'
+  default[:autofs][:auto_master_path] = '/etc/auto_master'
 else
-  default[:autofs][:auto_master_path] = "/etc/auto.master"
+  default[:autofs][:auto_master_path] = '/etc/auto.master'
 end
 
 default[:autofs][:auto_master_entries] = []

@@ -17,12 +17,12 @@
 # limitations under the License.
 #
 
-service "autofs" do
-  supports [ :start, :stop, :restart, :reload, :status ]
-  action [ :enable, :start ]
+service 'autofs' do
+  supports [:start, :stop, :restart, :reload, :status]
+  action [:enable, :start]
 end
 
-node[:autofs][:external_files].each do |filename,file_content|
+node[:autofs][:external_files].each do |filename, file_content|
   file filename.dup do
     content file_content.dup << "\n"
     owner 'root'
@@ -32,13 +32,13 @@ node[:autofs][:external_files].each do |filename,file_content|
 end
 
 template "#{node[:autofs][:auto_master_path]}" do
-  source "auto_master.erb"
-  owner "root"
-  group "root"
-  mode "0644"
-  notifies :reload, resources(:service => "autofs"), :immediately
+  source 'auto_master.erb'
+  owner 'root'
+  group 'root'
+  mode '0644'
+  notifies :reload, resources(service: 'autofs'), :immediately
   variables(
-    :auto_master_entries => node[:autofs][:auto_master_entries],
-    :external_files => node[:autofs][:external_files]
+    auto_master_entries: node[:autofs][:auto_master_entries],
+    external_files: node[:autofs][:external_files]
   )
 end
