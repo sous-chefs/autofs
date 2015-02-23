@@ -33,10 +33,11 @@ Usage
 =====
 
 ```
-autofs 'bucket' do 
-  sever_name 'bignfs-server.home'
+autofs '/bucket' do 
+  mount_point '/bucket' 
+  server 'bignfs-server.home'
+  export '/example/remote_path/'
   mount_options '-fstype=nfs4'
-  source_file bucket
 end
 ```
 
@@ -44,12 +45,10 @@ This will create a mount at /bucket with the mount options -fstype=nfs4
 on the server big-server.home. This information will be set in the file
 /etc/auto.bucket. A entry in auto.master will be created for this file.
 
-
 Recipes
 =======
 
 ## default
-
 Include the default recipe in a run list, to install & configure autofs.
 
 License and Author

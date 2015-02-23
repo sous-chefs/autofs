@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-property :export_name, String, identity = true
+property :mount_point, String, identity = true
 property :server_name, String
 property :mount_options, String
 property :source, String
