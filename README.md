@@ -51,6 +51,35 @@ Recipes
 ## default
 Include the default recipe in a run list, to install & configure autofs.
 
+Data Structure
+==============
+  node
+    autofs
+      mounts 
+        nfs
+          mount point 1
+            name
+            server
+            mount_options
+            export
+          mount point 2
+            name 
+            server
+            mount_options
+            export
+        smb
+          mount point 1
+            name
+            server
+            mount_options
+            export
+      master
+         thing1
+         thing2
+         thing3
+
+
+
 License and Author
 ==================
 
