@@ -22,14 +22,15 @@ property :export, Path
 property :mount_options, String
 
 recipe do
-  node['autofs']['mounts']['nfs'][:mount_point]['server'] = server
-  node['autofs']['mounts']['nfs'][:mount_point]['export'] = export
-  node['autofs']['mounts']['nfs'][:mount_point]['mount_options'] = mount_options
+  node.set['autofs']['mounts']['nfs'][:mount_point]['server'] = server
+  node.set['autofs']['mounts']['nfs'][:mount_point]['export'] = export
+  node.set['autofs']['mounts']['nfs'][:mount_point]['mount_options'] = mount_options
 
-  notifies :check, 'autofs_service[nfs]', :delayed
-
-   # Make sure we have an autofs service
-  autofs_service 'nfs' do
-    action :nothing
+  template '/etc/auto.nfs' do
+    source 'auto.nfs.erb'
+    mode '0644'
+    owner 'root'
+    variables mounts: node['autofs']['mounts']['nfs']
+    cookbook 'autofs'
   end
 end

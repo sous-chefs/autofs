@@ -1,37 +1,16 @@
 ---
-driver_plugin: vagrant
-driver_config:
-  require_chef_omnibus: true
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_zero
 
 platforms:
-- name: ubuntu-12.04
-  driver_config:
-    box: opscode-ubuntu-12.04
-    box_url: https://opscode-vm.s3.amazonaws.com/vagrant/opscode_ubuntu-12.04_provisionerless.box
-- name: ubuntu-10.04
-  driver_config:
-    box: opscode-ubuntu-10.04
-    box_url: https://opscode-vm.s3.amazonaws.com/vagrant/opscode_ubuntu-10.04_provisionerless.box
-- name: centos-6.4
-  driver_config:
-    box: opscode-centos-6.4
-    box_url: https://opscode-vm.s3.amazonaws.com/vagrant/opscode_centos-6.4_provisionerless.box
-- name: centos-5.9
-  driver_config:
-    box: opscode-centos-5.9
-    box_url: https://opscode-vm.s3.amazonaws.com/vagrant/opscode_centos-5.9_provisionerless.box
+  - name: centos-6.4
 
 suites:
-- name: default
-  run_list: ["recipe[autofs::default]"]
-  attributes:
-    autofs:
-        maps:
-            nfs:
-                keys:
-                    test:
-                        export: "test_volume"
-                        options: "-fstype=nfs, rw, hard, intr, sync"
-                        server: "test.example.com"
-                source: "/etc/auto.nfs"
-
+  - name: nfs-test
+    run_list:
+      - recipe[nfs_test::default]
+    includes:
+      - centos-6.4

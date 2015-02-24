@@ -1,0 +1,2 @@
+
+autofs_nfs 'blah'
