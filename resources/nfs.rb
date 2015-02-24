@@ -25,19 +25,17 @@ property :export, Path
 property :mount_options, String
 
 recipe do
-  node.set['autofs']['mounts']['nfs'][mount_point]['server'] = server
-  node.set['autofs']['mounts']['nfs'][mount_point]['export'] = export
-  node.set['autofs']['mounts']['nfs'][mount_point]['mount_options'] = mount_options
-  
+  node.run_state['autofs_mounts_nfs'] = {} unless node.run_state['autofs_mounts_nfs']
+  node.run_state['autofs_mounts_nfs'].merge!({ mount_point => { server: server, export: export, mount_options: mount_options }})
+
   template '/etc/auto.nfs' do
     source 'auto.nfs.erb'
     mode '0644'
     owner 'root'
-    variables mounts: node['autofs']['mounts']['nfs']
+    variables mounts: node.run_state['autofs_mounts_nfs'] 
     cookbook 'autofs'
+    action :create
   end
-
-  node.set['autofs']['master'] = ['/etc/auto.nfs']
 
   template '/etc/auto.master' do
     source 'auto_master.erb'
@@ -45,5 +43,7 @@ recipe do
     owner 'root'
     variables entries: node['autofs']['master']
     cookbook 'autofs'
+    action :create
   end
+
 end
