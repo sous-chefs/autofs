@@ -16,21 +16,34 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-property :mount_point, Path, identity:  true
+property :name, String, identity: true
+property :mount_point, Path do
+  default { name }
+end
 property :server, String
 property :export, Path 
 property :mount_options, String
 
 recipe do
-  node.set['autofs']['mounts']['nfs'][:mount_point]['server'] = server
-  node.set['autofs']['mounts']['nfs'][:mount_point]['export'] = export
-  node.set['autofs']['mounts']['nfs'][:mount_point]['mount_options'] = mount_options
-
+  node.set['autofs']['mounts']['nfs'][mount_point]['server'] = server
+  node.set['autofs']['mounts']['nfs'][mount_point]['export'] = export
+  node.set['autofs']['mounts']['nfs'][mount_point]['mount_options'] = mount_options
+  
   template '/etc/auto.nfs' do
     source 'auto.nfs.erb'
     mode '0644'
     owner 'root'
     variables mounts: node['autofs']['mounts']['nfs']
+    cookbook 'autofs'
+  end
+
+  node.set['autofs']['master'] = ['/etc/auto.nfs']
+
+  template '/etc/auto.master' do
+    source 'auto_master.erb'
+    mode '0644'
+    owner 'root'
+    variables entries: node['autofs']['master']
     cookbook 'autofs'
   end
 end
