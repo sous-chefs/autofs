@@ -12,3 +12,8 @@ autofs_nfs 'bowl' do
   export '/example/remote_path/'
   mount_options '-fstype=nfs3'
 end
+
+defaults :ps_nfs, :autofs_nfs, server: 'peoplesoft.nfs', export: '/ps', mount_options: '-fstype=nfs4'
+
+ps_nfs '/data'
+ps_nfs '/reports'
