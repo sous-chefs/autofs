@@ -27,6 +27,9 @@ property :mount_options, String
 recipe do
   package 'autofs'
   package 'nfs-utils'
+  service 'autofs' do
+    action [ :enable, :start ]
+  end
   # These are RHEL Family packages
   #package 'nfs-utils' if rhel?
   #package 'nfs-common' if debian?
