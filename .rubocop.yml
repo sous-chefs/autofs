@@ -1,0 +1,10 @@
+AllCops:
+  Exclude:
+    - vendor/**
+    - Guardfile
+Encoding:
+  Enabled: false
+LineLength:
+  Enabled: false
+RescueModifier:
+  Enabled: false

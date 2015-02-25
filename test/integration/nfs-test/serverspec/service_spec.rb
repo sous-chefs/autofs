@@ -1,10 +1,10 @@
-#require_relative '../../../shared/spec_helper.rb'
+# require_relative '../../../shared/spec_helper.rb'
 require 'serverspec'
 
 set :backend, :exec
 
 describe package('nfs-utils') do
-    it { should be_installed }
+  it { should be_installed }
 end
 
 describe package('autofs') do
@@ -12,5 +12,5 @@ describe package('autofs') do
 end
 
 describe service('autofs') do
-    it { should be_running }
+  it { should be_running }
 end

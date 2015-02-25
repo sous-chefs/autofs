@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: autofs
-# Resource:: nfs 
+# Resource:: nfs
 #
 # Copyright (C) 2015 University of Derby
 #
@@ -21,16 +21,13 @@ property :mount_point, Path do
   default { name }
 end
 property :server, String
-property :export, Path 
+property :export, Path
 property :mount_options, String
 
 recipe do
   package 'autofs'
   package 'nfs-utils'
   service 'autofs' do
-    action [ :enable, :start ]
+    action [:enable, :start]
   end
-  # These are RHEL Family packages
-  #package 'nfs-utils' if rhel?
-  #package 'nfs-common' if debian?
 end

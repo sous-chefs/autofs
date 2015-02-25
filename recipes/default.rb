@@ -8,12 +8,27 @@ end
 
 accumulator 'autofs' do
   target template:  '/etc/auto.nfs'
-  filter {|res| res.is_a? Chef::Resource::AutofsNfs }
-  transform {|resources|
+  filter { |res| res.is_a? Chef::Resource::AutofsNfs }
+  transform do|resources|
     mounts = {}
     resources.each do |r|
-      mounts.merge!({ r.mount_point => {server: r.server, export: r.export, mount_options: r.mount_options } })
+      mounts.merge!(r.mount_point =>
+                    {
+                      server: r.server,
+                      export: r.export,
+                      mount_options: r.mount_options
+                    })
     end
     mounts
-  }
+  end
+end
+include_recipe 'chef-sugar'
+
+package 'autofs'
+# Red Hat specific
+package 'nfs-utils' if rhel?
+package 'nfs-common' if debian?
+
+service 'autofs' do
+  action [:enable, :start]
 end
