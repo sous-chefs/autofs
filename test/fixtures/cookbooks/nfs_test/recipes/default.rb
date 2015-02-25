@@ -1,10 +1,11 @@
-
 autofs_nfs 'bucket' do
   mount_point '/bucket' 
   server 'bignfs-server.home'
   export '/example/remote_path/'
   mount_options '-fstype=nfs4'
 end
+
+include_recipe 'autofs'
 
 autofs_nfs 'bowl' do
   mount_point '/bowl' 
@@ -13,7 +14,9 @@ autofs_nfs 'bowl' do
   mount_options '-fstype=nfs3'
 end
 
-defaults :ps_nfs, :autofs_nfs, server: 'peoplesoft.nfs', export: '/ps', mount_options: '-fstype=nfs4'
-
-ps_nfs '/data'
-ps_nfs '/reports'
+autofs_nfs 'churn' do
+  mount_point '/churn' 
+  server 'tinynfs-server.home'
+  export '/example/remote_path/'
+  mount_options '-fstype=nfs3'
+end

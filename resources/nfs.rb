@@ -25,25 +25,4 @@ property :export, Path
 property :mount_options, String
 
 recipe do
-  node.run_state['autofs_mounts_nfs'] = {} unless node.run_state['autofs_mounts_nfs']
-  node.run_state['autofs_mounts_nfs'].merge!({ mount_point => { server: server, export: export, mount_options: mount_options }})
-
-  template '/etc/auto.nfs' do
-    source 'auto.nfs.erb'
-    mode '0644'
-    owner 'root'
-    variables mounts: node.run_state['autofs_mounts_nfs'] 
-    cookbook 'autofs'
-    action :create
-  end
-
-  template '/etc/auto.master' do
-    source 'auto_master.erb'
-    mode '0644'
-    owner 'root'
-    variables entries: node['autofs']['master']
-    cookbook 'autofs'
-    action :create
-  end
-
 end
