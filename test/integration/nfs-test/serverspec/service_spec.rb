@@ -1,4 +1,7 @@
-require_relative '../../../shared/spec_helper.rb'
+#require_relative '../../../shared/spec_helper.rb'
+require 'serverspec'
+
+set :backend, :exec
 
 describe package('nfs-utils') do
     it { should be_installed }
