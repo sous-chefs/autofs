@@ -25,4 +25,9 @@ property :export, Path
 property :mount_options, String
 
 recipe do
+  package 'autofs'
+  package 'nfs-utils'
+  # These are RHEL Family packages
+  #package 'nfs-utils' if rhel?
+  #package 'nfs-common' if debian?
 end
