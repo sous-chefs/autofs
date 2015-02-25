@@ -31,11 +31,6 @@ accumulator 'autofs' do
   end
 end
 
-accumulator 'master' do
-  target template '/etc/auto.master'
-  filter { |res| res.is_a? Chef:: }
-end
-
 include_recipe 'chef-sugar'
 
 package 'autofs'

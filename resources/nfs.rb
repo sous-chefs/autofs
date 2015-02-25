@@ -23,3 +23,6 @@ end
 property :server, String
 property :export, Path
 property :mount_options, String
+
+recipe do
+end
