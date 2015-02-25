@@ -1,15 +1,6 @@
-
-template '/etc/auto.nfs' do
+template '/etc/auto.master' do
   source 'auto.nfs.erb'
   mode '0644'
-  owner 'root'
-  action :nothing
-end
-
-template '/etc/auto.master' do
-  source 'auto.master.rb'
-  mode '0644'
-  owner 'root'
   owner 'root'
   action :nothing
 end
@@ -31,18 +22,4 @@ accumulator 'autofs' do
   end
 end
 
-accumulator 'master' do
-  target template '/etc/auto.master'
-  filter { |res| res.is_a? Chef:: }
-end
 
-include_recipe 'chef-sugar'
-
-package 'autofs'
-# Red Hat specific
-package 'nfs-utils' if rhel?
-package 'nfs-common' if debian?
-
-service 'autofs' do
-  action [:enable, :start]
-end

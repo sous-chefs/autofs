@@ -23,11 +23,3 @@ end
 property :server, String
 property :export, Path
 property :mount_options, String
-
-recipe do
-  package 'autofs'
-  package 'nfs-utils'
-  service 'autofs' do
-    action [:enable, :start]
-  end
-end
