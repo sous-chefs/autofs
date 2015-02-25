@@ -1,6 +1,6 @@
 AllCops:
   Exclude:
-    - vendor/**
+    - .kitchen/**/*
     - Guardfile
 Encoding:
   Enabled: false
