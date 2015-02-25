@@ -6,8 +6,8 @@ template '/etc/auto.nfs' do
   action :nothing
 end
 
-accumulator "autofs" do
-  target :template => "/etc/auto.nfs"
+accumulator 'autofs' do
+  target template:  '/etc/auto.nfs'
   filter {|res| res.is_a? Chef::Resource::AutofsNfs }
   transform {|resources|
     mounts = {}
