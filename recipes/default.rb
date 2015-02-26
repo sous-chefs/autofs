@@ -6,14 +6,6 @@ template '/etc/auto.nfs' do
   action :nothing
 end
 
-template '/etc/auto.master' do
-  source 'auto.master.rb'
-  mode '0644'
-  owner 'root'
-  owner 'root'
-  action :nothing
-end
-
 accumulator 'autofs' do
   target template:  '/etc/auto.nfs'
   filter { |res| res.is_a? Chef::Resource::AutofsNfs }
@@ -29,6 +21,18 @@ accumulator 'autofs' do
     end
     mounts
   end
+end
+
+# TODO: just get test working
+template '/etc/auto.master' do
+  source 'auto_master.erb'
+  mode '0644'
+  owner 'root'
+  owner 'root'
+  variables(
+    files: '/etc/auto.nfs'
+  )
+  action :create
 end
 
 include_recipe 'chef-sugar'
