@@ -7,7 +7,7 @@ Scope
 -----
 This cookbook configures clients that use autofs
 See: http://linux.die.net/man/8/automount
- 
+
 This cookbook does not concern itself with managing an NFS server.
 
 Requirements
@@ -19,65 +19,31 @@ Requirements
  Platform
 ---------
 * Debian, Ubuntu
-* CentOS, Red Hat, Fedora, Scientific, Amazon, XenServer
-* SmartOS, Solaris2
-
-
-Attributes 
-============
-
-#TODO: this section needs fully filling out
-For now please consult attributes/default.rb for attirbutes you can set. 
+* CentOS, Red Hat
 
 Usage
 =====
 
 ```
-autofs '/bucket' do 
-  mount_point '/bucket' 
-  server 'bignfs-server.home'
+autofs_nfs 'bowl' do
+  mount_point '/bowl'
+  server 'tinynfs-server.home'
   export '/example/remote_path/'
-  mount_options '-fstype=nfs4'
+  mount_options '-fstype=nfs3'
 end
 ```
 
-This will create a mount at /bucket with the mount options -fstype=nfs4 
-on the server big-server.home. This information will be set in the file
-/etc/auto.bucket. A entry in auto.master will be created for this file.
+This will create a mount at `/bucket` with the mount options `-fstype=nfs4`
+on the server `big-server.home`.
+This information will be set in the file
+`/etc/auto.nfs`.
+An entry in `auto.master` will be created for this file.
 
 Recipes
 =======
 
 ## default
-Include the default recipe in a run list, to install & configure autofs.
-
-Data Structure
-==============
-  node
-    autofs
-      mounts 
-        nfs
-          mount point 1
-            name
-            server
-            mount_options
-            export
-          mount point 2
-            name 
-            server
-            mount_options
-            export
-        smb
-          mount point 1
-            name
-            server
-            mount_options
-            export
-      master
-         thing1
-         thing2
-         thing3
-
+Include the default recipe to enable the `autofs_nfs` resource
 
 
 License and Author

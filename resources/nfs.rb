@@ -25,4 +25,5 @@ property :export, Path
 property :mount_options, String
 
 recipe do
+  directory mount_point
 end

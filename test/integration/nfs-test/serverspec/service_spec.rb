@@ -14,3 +14,15 @@ end
 describe service('autofs') do
   it { should be_running }
 end
+
+describe file('/bucket') do
+  it { should be_directory }
+end
+
+describe file('/churn') do
+  it { should be_directory }
+end
+
+describe file('/bowl') do
+  it { should be_directory }
+end
