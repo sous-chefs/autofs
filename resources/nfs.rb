@@ -1,8 +1,8 @@
 #
 # Cookbook Name:: autofs
-# Recipe:: smartos
+# Resource:: nfs
 #
-# Copyright ModCloth, Inc.
+# Copyright (C) 2015 University of Derby
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,17 +16,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
-service "svc:/network/rpc/bind:default" do
-  supports [ :enable, :disable, :restart ]
-  action [ :disable ]
-  not_if "svcs autofs | grep online && grep net /etc/auto_master"
+property :name, String, identity: true
+property :mount_point, Path do
+  default { name }
 end
+property :server, String
+property :export, Path
+property :mount_options, String
 
-service "svc:/network/rpc/bind:default" do
-  supports [ :enable, :disable, :restart ]
-  action [ :enable ]
-  not_if "svcs autofs | grep online && grep net /etc/auto_master"
+recipe do
+  directory mount_point
 end
-
-include_recipe "autofs::common"

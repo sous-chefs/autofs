@@ -1,0 +1,3 @@
+<% @accumulator_data.each do |mount_point, opts| %>
+<%= mount_point %> <%= opts[:mount_options] %> <%= opts[:server] %>:<%= opts[:export] %>
+<% end %>

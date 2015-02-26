@@ -1,28 +1,47 @@
-#
-# Cookbook Name:: autofs
-# Recipe:: default
-#
-# Copyright ModCloth, Inc.
-# Copyright (C) 2013 University of Derby
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-#
 
-case
-when platform?("solaris2", "smartos")
-    include_recipe "autofs::smartos"
-when platform_family?("debian", "fedora", "rhel")
-    include_recipe "autofs::linux"
-else
-    Chef::Log.error("The 'autofs' cookbook is not supported on this platform.")
+template '/etc/auto.nfs' do
+  source 'auto.nfs.erb'
+  mode '0644'
+  owner 'root'
+  action :nothing
+end
+
+accumulator 'autofs' do
+  target template:  '/etc/auto.nfs'
+  filter { |res| res.is_a? Chef::Resource::AutofsNfs }
+  transform do|resources|
+    mounts = {}
+    resources.each do |r|
+      mounts.merge!(r.mount_point =>
+                    {
+                      server: r.server,
+                      export: r.export,
+                      mount_options: r.mount_options
+                    })
+    end
+    mounts
+  end
+end
+
+# TODO: just get test working
+template '/etc/auto.master' do
+  source 'auto_master.erb'
+  mode '0644'
+  owner 'root'
+  owner 'root'
+  variables(
+    files: ['/etc/auto.nfs']
+  )
+  action :create
+end
+
+include_recipe 'chef-sugar'
+
+package 'autofs'
+# Red Hat specific
+package 'nfs-utils' if rhel?
+package 'nfs-common' if debian?
+
+service 'autofs' do
+  action [:enable, :start]
 end

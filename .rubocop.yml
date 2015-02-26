@@ -1,0 +1,10 @@
+AllCops:
+  Exclude:
+    - .kitchen/**/*
+    - Guardfile
+Encoding:
+  Enabled: false
+LineLength:
+  Enabled: false
+RescueModifier:
+  Enabled: false
