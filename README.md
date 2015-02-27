@@ -24,27 +24,30 @@ Requirements
 Usage
 =====
 
+Resources
+=========
+this cookbook provides the `nfs` resource
 ```
-autofs_nfs 'bowl' do
-  mount_point '/bowl'
+include_recipe 'autofs'
+
+autofs_nfs '/mnt/nfs' do
+  mount_point '/mnt/nfs'
   server 'tinynfs-server.home'
   export '/example/remote_path/'
   mount_options '-fstype=nfs3'
 end
 ```
 
-This will create a mount at `/bucket` with the mount options `-fstype=nfs4`
-on the server `big-server.home`.
-This information will be set in the file
-`/etc/auto.nfs`.
-An entry in `auto.master` will be created for this file.
-
-Recipes
-=======
-
-## default
-Include the default recipe to enable the `autofs_nfs` resource
-
+This will add the following entry to /etc/auto.nfs
+`/mnt/nfs tinynfs-server.home:/example/remote_path/ -fstype=nfs3`
+ 
+Attributes
+==========
+`/etc/auto.master` can be altered directly via an attribute
+```
+node['autofs']['auto_master_entries'] = ['/mnt/nfs /awesome/server']
+include_recipe 'autofs'
+```
 
 License and Author
 ==================
