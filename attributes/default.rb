@@ -1,1 +1,1 @@
-default['autofs']['master'] = ['/etc/auto.nfs']
+default['autofs']['auto_master_entries'] = ['/etc/auto.nfs']

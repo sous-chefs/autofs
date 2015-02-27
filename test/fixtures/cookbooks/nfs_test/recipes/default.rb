@@ -5,6 +5,7 @@ autofs_nfs 'bucket' do
   mount_options '-fstype=nfs4'
 end
 
+node.default['autofs']['auto_master_entries'] = ['/home /awesome_perl_script.pl nfsvers=3 --timeout=600']
 include_recipe 'autofs'
 
 autofs_nfs 'bowl' do
@@ -20,3 +21,4 @@ autofs_nfs 'churn' do
   export '/example/remote_path/'
   mount_options '-fstype=nfs3'
 end
+

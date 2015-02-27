@@ -30,7 +30,8 @@ template '/etc/auto.master' do
   owner 'root'
   owner 'root'
   variables(
-    files: ['/etc/auto.nfs']
+    files: ['/etc/auto.nfs'],
+    entries: node['autofs']['auto_master_entries']
   )
   action :create
 end
