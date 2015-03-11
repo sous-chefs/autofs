@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-property :name, String, identity: true
+property :mount_name, String, identity: true
 property :mount_point, Path do
   default { name }
 end

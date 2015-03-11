@@ -38,7 +38,6 @@ end
 include_recipe 'chef-sugar'
 
 package 'autofs'
-# Red Hat specific
 package 'nfs-utils' if rhel?
 package 'nfs-common' if debian?
 
