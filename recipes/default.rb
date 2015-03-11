@@ -23,7 +23,6 @@ accumulator 'autofs' do
   end
 end
 
-# TODO: just get test working
 template '/etc/auto.master' do
   source 'auto_master.erb'
   mode '0644'
