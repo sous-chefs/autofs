@@ -1,5 +1,8 @@
 AutoFS Cookbook
 ===============
+[![Build
+Status](https://travis-ci.org/universityofderby/chef-autofs.svg?branch=master)](https://travis-ci.org/universityofderby/chef-autofs)
+
 The AutoFS cookbook is a library cookbook that provides resource primitives for
 use in recipes.
 
