@@ -1,6 +1,9 @@
 AutoFS Cookbook CHANGELOG
 ========================
 
+v0.2.2 (2015-03-12)
+Bugs #4 & #5 fixed and small amount of rubocop. 
+
 v0.2.0 (2015-02-27)
 Refactored entire cookbook to a resource model.
 
