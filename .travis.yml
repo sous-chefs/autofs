@@ -1,0 +1,10 @@
+language: ruby
+bundler_args: --without development
+script: "bundle exec rake style"
+rvm:
+  - 2.1.4 
+gemfile:
+  - Gemfile
+branches:
+  only:
+    - master
