@@ -15,8 +15,7 @@ autofs_nfs 'bowl' do
   mount_options '-fstype=nfs3'
 end
 
-autofs_nfs 'churn' do
-  mount_point '/churn'
+autofs_nfs '/churn' do
   server 'tinynfs-server.home'
   export '/example/remote_path/'
   mount_options '-fstype=nfs3'

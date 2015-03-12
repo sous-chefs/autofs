@@ -18,7 +18,7 @@
 #
 property :mount_name, String, identity: true
 property :mount_point, Path do
-  default { name }
+  default { mount_name }
 end
 property :server, String
 property :export, Path
