@@ -21,4 +21,3 @@ autofs_nfs 'churn' do
   export '/example/remote_path/'
   mount_options '-fstype=nfs3'
 end
-

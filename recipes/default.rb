@@ -23,7 +23,6 @@ accumulator 'autofs' do
   end
 end
 
-# TODO: just get test working
 template '/etc/auto.master' do
   source 'auto_master.erb'
   mode '0644'
@@ -39,7 +38,6 @@ end
 include_recipe 'chef-sugar'
 
 package 'autofs'
-# Red Hat specific
 package 'nfs-utils' if rhel?
 package 'nfs-common' if debian?
 
