@@ -15,9 +15,4 @@ suites:
       - recipe[nfs_test::default]
     includes:
       - centos-6.4
-
-  - name: ubuntu-nfs-test
-    run_list:
-      - recipe[nfs_test::default]
-    includes:
       - ubuntu-14.04
