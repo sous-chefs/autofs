@@ -3,9 +3,9 @@ require 'serverspec'
 set :backend, :exec
 
 describe file('/etc/auto.master') do
-    it { should contain '/- /etc/auto.nfs' }
-    it { should contain '/smb /etc/auto.smb' }
-    it { should contain '/home /awesome_perl_script.pl nfsvers=3 --timeout=600' }
+  it { should contain '/- /etc/auto.nfs' }
+  it { should contain '/smb /etc/auto.smb' }
+  it { should contain '/home /awesome_perl_script.pl nfsvers=3 --timeout=600' }
 end
 
 describe file('/etc/auto.smb') do
