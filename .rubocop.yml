@@ -2,6 +2,7 @@ AllCops:
   Exclude:
     - .kitchen/**/*
     - Guardfile
+    - vendor/**/*
 Encoding:
   Enabled: false
 LineLength:
