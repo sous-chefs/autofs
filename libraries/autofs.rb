@@ -22,7 +22,7 @@ end
 Chef.resource :map_entry do
   property :key, String, identity: true
   property :location, Path
-  property :options, String
+  property :options, default: nil
   property :map, Path
   property :fstype, String
   property :mount_point, Path do
@@ -31,13 +31,26 @@ Chef.resource :map_entry do
   recipe do
     file map
     service 'autofs'
+    unless options.nil?
+      opts = [fstype, options].join(',')
+    else
+      opts = fstype
+    end
     replace_or_add key do
       path map
       pattern "#{key} #{location}.*"
-      line "#{key} -fstype=#{[fstype, options].join(',')} #{location}"
+      line "#{key} -fstype=#{opts} #{location}"
       notifies :reload, 'service[autofs]', :immediately
     end
-    automaster_entry mount_point, map
+    automaster_entry mount_point, map do
+    end
+
+    case fstype
+    when 'nfs4'
+      include_recipe 'chef-sugar'
+      package 'nfs-utils' if rhel?
+      package 'nfs-common' if debian?
+    end
   end
 end
 
@@ -57,10 +70,5 @@ Chef.resource :nfs, :map_entry do
   end
   property :fstype do
     default { 'nfs4' }
-  end
-  recipe do
-    include_recipe 'chef-sugar'
-    package 'nfs-utils' if rhel?
-    package 'nfs-common' if debian?
   end
 end
