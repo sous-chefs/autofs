@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/universityofderby/chef-autofs.png?label=ready&title=Ready)](https://waffle.io/universityofderby/chef-autofs)
 AutoFS Cookbook
 ===============
 [![Build
