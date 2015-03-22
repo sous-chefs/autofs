@@ -4,12 +4,17 @@ Chef.resource :automaster_entry do
   property :options, String
 
   recipe do
+    package 'autofs'
+    service 'autofs' do
+      action [:enable, :start]
+    end
     file '/etc/auto.master'
-    
+
     replace_or_add mount_point do
       path '/etc/auto.master'
       pattern "#{mount_point} #{map}.*"
       line "#{mount_point} #{map} #{options}"
+      notifies :reload, 'service[autofs]', :immediately
     end
   end
 end
@@ -25,17 +30,20 @@ Chef.resource :map_entry do
   end
   recipe do
     file map
-
+    service 'autofs'
     replace_or_add key do
       path map
       pattern "#{key} #{location}.*"
       line "#{key} -fstype=#{[fstype,options].join(',')} #{location}"
+      notifies :reload, 'service[autofs]', :immediately
     end
     automaster_entry mount_point, map
   end
 end
 
 Chef.resource :nfs, :map_entry do
+  include Chef::DSL::IncludeRecipe
+
   property :server, String
   property :export, Path
   property :location do
@@ -49,6 +57,11 @@ Chef.resource :nfs, :map_entry do
   end
   property :fstype do
     default { 'nfs4' }
+  end
+  recipe do
+    include_recipe 'chef-sugar'
+    package 'nfs-utils' if rhel?
+    package 'nfs-common' if debian?
   end
 end
 
