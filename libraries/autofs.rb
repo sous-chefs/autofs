@@ -34,7 +34,7 @@ Chef.resource :map_entry do
     replace_or_add key do
       path map
       pattern "#{key} #{location}.*"
-      line "#{key} -fstype=#{[fstype,options].join(',')} #{location}"
+      line "#{key} -fstype=#{[fstype, options].join(',')} #{location}"
       notifies :reload, 'service[autofs]', :immediately
     end
     automaster_entry mount_point, map
@@ -64,5 +64,3 @@ Chef.resource :nfs, :map_entry do
     package 'nfs-common' if debian?
   end
 end
-
-

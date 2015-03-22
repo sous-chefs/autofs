@@ -1,5 +1,5 @@
 automaster_entry '/home', '/awesome_perl_script.pl' do
-  options 'nfsvers=3 --timeout=600' 
+  options 'nfsvers=3 --timeout=600'
 end
 
 map_entry 'userhome' do
