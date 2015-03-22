@@ -64,5 +64,3 @@ Chef.resource :nfs, :map_entry do
     package 'nfs-common' if debian?
   end
 end
-
-
