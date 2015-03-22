@@ -4,7 +4,7 @@ end
 
 map_entry 'userhome' do
   location 'smbserver:export'
-  options '-fstype=smb'
+  fstype 'smb'
   map '/etc/auto.smb'
 end
 
