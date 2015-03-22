@@ -6,4 +6,4 @@ version '1.0.0'
 
 depends 'resource'
 depends 'chef-sugar'
-depends 'accumulator'
+depends 'line'

@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/universityofderby/chef-autofs.png?label=ready&title=Ready)](https://waffle.io/universityofderby/chef-autofs)
 AutoFS Cookbook
 ===============
 [![Build
@@ -29,27 +30,31 @@ Usage
 
 Resources
 =========
-this cookbook provides the `nfs` resource
-```
-include_recipe 'autofs'
 
-autofs_nfs '/mnt/nfs' do
-  mount_point '/mnt/nfs'
-  server 'tinynfs-server.home'
-  export '/example/remote_path/'
-  mount_options '-fstype=nfs3'
+Add entries directly to auto.master
+```
+automaster_entry '/smb', '/etc/auto.smb' do
+  options '--timeout 600'
 end
 ```
 
-This will add the following entry to /etc/auto.nfs
-`/mnt/nfs tinynfs-server.home:/example/remote_path/ -fstype=nfs3`
- 
-Attributes
-==========
-`/etc/auto.master` can be altered directly via an attribute
+Add entries to custom autofs map file
 ```
-node['autofs']['auto_master_entries'] = ['/mnt/nfs /awesome/server']
-include_recipe 'autofs'
+map_entry 'homes' do
+  location '://smb-server:directory'
+  fstype 'smb'
+  options 'rw'
+  map '/etc/auto.smb'
+end
+```
+
+Nfs resource with default entries for map & auto.master
+```
+nfs '/mnt/nfs' do
+  server 'nfsserver'
+  export '/example/remote_path/'
+  options 'sync'
+end
 ```
 
 License and Author
