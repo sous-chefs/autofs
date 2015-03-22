@@ -31,10 +31,10 @@ Chef.resource :map_entry do
   recipe do
     file map
     service 'autofs'
-    unless options.nil?
-      opts = [fstype, options].join(',')
-    else
+    if options.nil?
       opts = fstype
+    else
+      opts = [fstype, options].join(',')
     end
     replace_or_add key do
       path map
