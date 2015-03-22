@@ -10,3 +10,4 @@ bin
 .kitchen.local.yml
 Berksfile.lock
 Vagrantfile
+vendor
