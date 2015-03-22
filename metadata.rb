@@ -5,4 +5,5 @@ description 'Configures the autofs service'
 version '0.2.2'
 
 depends 'resource'
+depends 'chef-sugar'
 depends 'line'
