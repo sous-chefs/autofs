@@ -30,6 +30,8 @@ Chef.resource :map_entry do
   end
   recipe do
     file map
+    automaster_entry mount_point, map do
+    end
     service 'autofs'
     if options.nil?
       opts = fstype
@@ -41,8 +43,6 @@ Chef.resource :map_entry do
       pattern "#{key} #{location}.*"
       line "#{key} -fstype=#{opts} #{location}"
       notifies :reload, 'service[autofs]', :immediately
-    end
-    automaster_entry mount_point, map do
     end
 
     case fstype

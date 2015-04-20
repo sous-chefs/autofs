@@ -6,10 +6,12 @@ provisioner:
   name: chef_zero
 
 platforms:
-  - name: centos-6.4
+  - name: centos-6.6
+
 suites:
   - name: nfs-test
     run_list:
       - recipe[nfs_test::default]
-    includes:
-      - centos-6.4
+  - name: nfs-only-test
+    run_list:
+      - recipe[nfs_only::default]
