@@ -1,6 +1,9 @@
 AutoFS Cookbook CHANGELOG
 ========================
 
+v1.0.1 (2015-04-20)
+Refactored NFS block to change order at which packages are installed.
+
 v0.2.2 (2015-03-12)
 Bugs #4 & #5 fixed and small amount of rubocop. 
 
