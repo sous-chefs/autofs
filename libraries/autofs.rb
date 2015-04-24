@@ -40,7 +40,7 @@ Chef.resource :map_entry do
     end
     replace_or_add key do
       path map
-      pattern "#{key} #{location}.*"
+      pattern "#{key}.*#{location}.*"
       line "#{key} -fstype=#{opts} #{location}"
       notifies :reload, 'service[autofs]', :immediately
     end
