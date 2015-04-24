@@ -1,5 +1,7 @@
 AutoFS Cookbook CHANGELOG
 ========================
+v1.0.2 (2015-04-24)
+Bug: line matching does not work.
 
 v1.0.1 (2015-04-20)
 Refactored NFS block to change order at which packages are installed.
