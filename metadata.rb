@@ -2,7 +2,7 @@ name 'autofs'
 maintainer 'University of Derby'
 maintainer_email 'ai@derby.ac.uk'
 description 'Configures the autofs service'
-version '1.0.2'
+version '1.0.3'
 
 depends 'resource'
 depends 'chef-sugar'

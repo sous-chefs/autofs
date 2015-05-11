@@ -1,5 +1,8 @@
 AutoFS Cookbook CHANGELOG
 ========================
+v1.0.3 (2015-05-11)
+Bug: #9 duplicate entries for the same mountpoint.
+
 v1.0.2 (2015-04-24)
 Bug: line matching does not work.
 
