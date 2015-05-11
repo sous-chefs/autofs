@@ -1,5 +1,9 @@
 AutoFS Cookbook CHANGELOG
 ========================
+v1.0.4 (tbc)
+Bug #12 no constraints set in metadata
+ 
+
 v1.0.3 (2015-05-11)
 Bug: #9 duplicate entries for the same mountpoint.
 
