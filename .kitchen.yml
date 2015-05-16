@@ -15,3 +15,6 @@ suites:
   - name: nfs-only-test
     run_list:
       - recipe[nfs_only::default]
+  - name: auto_master
+    run_list:
+      - recipe[auto_master::default]
