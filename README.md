@@ -1,6 +1,8 @@
 [![Stories in Ready](https://badge.waffle.io/universityofderby/chef-autofs.png?label=ready&title=Ready)](https://waffle.io/universityofderby/chef-autofs)
 AutoFS Cookbook
 ===============
+
+[![Join the chat at https://gitter.im/universityofderby/chef-autofs](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/universityofderby/chef-autofs?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Build
 Status](https://travis-ci.org/universityofderby/chef-autofs.svg?branch=master)](https://travis-ci.org/universityofderby/chef-autofs)
 
