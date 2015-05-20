@@ -16,7 +16,7 @@ This cookbook does not concern itself with managing an NFS server.
 
 Requirements
 ------------
-- Chef 12 or higher
+- Chef 12.0.3 or higher
 - Ruby 1.9 or higher (preferably from the Chef full-stack installer)
 - Network accessible package repositories
 
