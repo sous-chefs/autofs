@@ -1,2 +1,3 @@
-automaster_entry '/misc', '/etc/auto.misc' do
+automaster_entry '/misc' do
+  map '/etc/auto.misc' 
 end
