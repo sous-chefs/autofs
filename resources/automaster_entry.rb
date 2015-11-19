@@ -1,3 +1,5 @@
+resource_name :automaster_entry
+
 property :mount_point, String, name_property: true
 property :map, String
 property :options, String

@@ -1,15 +1,18 @@
+resource_name :map_entry
+
 property :key, String, name_property: true
-property :location, Path
-property :options, default: nil
-property :map, Path
+property :location, String
+property :options, String, default: nil
+property :map, String
 property :fstype, String
-# property :mount_point, Path, default: '/' + map.match(/(?:\.)(.*)/).captures[0]
+property :mount_point, String, default: lazy { '/' + map.match(/(?:\.)(.*)/).captures[0] }
 
 action :create do
   file map
   automaster_entry mount_point do
-    map
+    map "#{map}"
   end
+
   service 'autofs'
   if options.nil?
     opts = fstype
