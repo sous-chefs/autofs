@@ -1,30 +1,32 @@
 resource_name :map_entry
 
 property :key, String, name_property: true
-property :location, String
-property :options, String, default: nil
-property :map, String
-property :fstype, String
-property :mount_point, String, default: lazy { '/' + map.match(/(?:\.)(.*)/).captures[0] }
+property :location, [ String, nil ], default: nil
+property :options, [ String, nil ], default: nil
+property :map, String, required: true
+property :fstype, [ String, nil ], default: nil
+property :mount_point, String, default: lazy {'/' + map.match(/(?:\.)(.*)/).captures.first}
 
 action :create do
   file map
+
   automaster_entry mount_point do
-    map "#{map}"
+    map "#{new_resource.map}"
   end
 
-  service 'autofs'
   if options.nil?
     opts = fstype
   else
     opts = [fstype, options].join(',')
   end
+
   replace_or_add key do
     path map
     pattern "#{key}.*"
     line "#{key} -fstype=#{opts} #{location}"
-    notifies :reload, 'service[autofs]', :immediately
+    notifies :reload, 'service[autofs]'
   end
+
 
   case fstype
   when 'nfs4'

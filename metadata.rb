@@ -6,4 +6,4 @@ version '1.0.4'
 
 depends 'compat_resource', '~> 12.5.10'
 depends 'chef-sugar', '= 3.1.0'
-depends 'line', '= 0.6.1'
+depends 'line', '~> 0.6.0'
