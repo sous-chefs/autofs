@@ -1,7 +1,7 @@
-source 'https://supermarket.getchef.com'
+source 'https://supermarket.chef.io'
 
 metadata
-cookbook 'nfs_test', path: 'test/fixtures/cookbooks/nfs_test'
-cookbook 'nfs_only', path: 'test/fixtures/cookbooks/nfs_only'
-cookbook 'auto_master', path: 'test/fixtures/cookbooks/auto_master'
-cookbook 'map_entry', path: 'test/fixtures/cookbooks/map_entry'
+cookbook 'auto_master_test', path: 'test/cookbooks/auto_master_test'
+cookbook 'map_entry_test', path: 'test/cookbooks/map_entry_test'
+cookbook 'multi_test', path: 'test/cookbooks/multi_test'
+cookbook 'nfs_test', path: 'test/cookbooks/nfs_test'

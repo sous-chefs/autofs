@@ -1,6 +1,6 @@
 map_entry 'userhome' do
-  location 'smbserver:export'
   fstype 'smb'
+  location 'smbserver:export'
   map '/etc/auto.smb'
   mount_point '/smb'
 end

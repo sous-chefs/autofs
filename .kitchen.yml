@@ -1,21 +1,26 @@
 ---
+driver:
+  name: vagrant
+
 provisioner:
   name: chef_zero
 
 platforms:
-  - name: centos-6
+  - name: centos-6.7
+
+verifier:
+  name: inspec
 
 suites:
-  - name: auto_master
+  - name: auto-master
     run_list:
-      - recipe[auto_master::default]
+      - recipe[auto_master_test::default]
   - name: map-entry
     run_list:
-      - recipe[map_entry::default]  
-  - name: nfs-test
+      - recipe[map_entry_test::default]
+  - name: multi
+    run_list:
+      - recipe[multi_test::default]
+  - name: nfs
     run_list:
       - recipe[nfs_test::default]
-  - name: nfs-only-test
-    run_list:
-      - recipe[nfs_only::default]
-

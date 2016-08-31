@@ -1,37 +1,41 @@
 resource_name :map_entry
+default_action :create
 
+property :fstype, String
 property :key, String, name_property: true
-property :location, [ String, nil ], default: nil
-property :options, [ String, nil ], default: nil
+property :location, String
 property :map, String, required: true
-property :fstype, [ String, nil ], default: nil
-property :mount_point, String, default: lazy {'/' + map.match(/(?:\.)(.*)/).captures.first}
+property :mount_point, String, default: lazy { '/' + map.match(/(?:\.)(.*)/).captures.first }
+property :options, String
 
 action :create do
   file map
 
   automaster_entry mount_point do
-    map "#{new_resource.map}"
+    map new_resource.map
   end
 
-  if options.nil?
-    opts = fstype
-  else
-    opts = [fstype, options].join(',')
+  opts = if options.nil?
+           fstype
+         else
+           [fstype, options].join(',')
+         end
+
+  service 'autofs' do
+    action :nothing
   end
 
   replace_or_add key do
+    line "#{key} -fstype=#{opts} #{location}"
     path map
     pattern "#{key}.*"
-    line "#{key} -fstype=#{opts} #{location}"
     notifies :reload, 'service[autofs]'
   end
-
 
   case fstype
   when 'nfs4'
     include_recipe 'chef-sugar'
-    package 'nfs-utils' if rhel?
     package 'nfs-common' if debian?
+    package 'nfs-utils' if rhel?
   end
 end
