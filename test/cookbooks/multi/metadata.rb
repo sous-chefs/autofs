@@ -1,4 +1,4 @@
-name 'auto_master_test'
+name 'multi'
 version '0.0.1'
 
 depends 'autofs'

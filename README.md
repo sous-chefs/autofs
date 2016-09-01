@@ -63,8 +63,8 @@ end
 License and Author
 ==================
 
-* Author: Dan Webb (<d.webb@derby.ac.uk>)
-* Author: Luke Bradbury (<luke.bradbury@derby.ac.uk>)
+* Author: Dan Webb (<dan.webb@damacus.io>)
+* Author: Luke Bradbury (<luke@nqyr.io>)
 * Author: Richard Lock (<r.j.lock@derby.ac.uk>)
 
 Copyright: 2016, University of Derby
