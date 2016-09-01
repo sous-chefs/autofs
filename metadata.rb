@@ -3,6 +3,8 @@ maintainer 'University of Derby'
 maintainer_email 'serverteam@derby.ac.uk'
 description 'Configures the autofs service'
 version '1.0.4'
+source_url 'https://github.com/universityofderby/chef-autofs'
+issues_url 'https://github.com/universityofderby/chef-autofs/issues'
 
 depends 'compat_resource', '~> 12.14'
 depends 'chef-sugar', '~> 3.4.0'

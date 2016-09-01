@@ -32,14 +32,13 @@ action :create do
     notifies :reload, 'service[autofs]'
   end
 
-
   case fstype
   when 'nfs4'
     include_recipe 'chef-sugar'
     debian? ? (package 'nfs-common') : (package 'nfs-utils')
   else
     log 'NFS type not set or supported' do
-      message "NFS type not set or supported"
+      message 'NFS type not set or supported'
       level :debug
     end
   end
