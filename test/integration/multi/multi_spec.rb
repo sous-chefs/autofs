@@ -29,5 +29,5 @@ describe file('/etc/auto.smb') do
 end
 
 describe file('/etc/auto.nfs') do
-  its('content') { should match('/nfs/userhome -fstype=nfs,rw,hard,intr,sync nfsserver:export') }
+  its('content') { should match('/nfs/userhome -fstype=nfs4,rw,hard,intr,sync nfsserver:export') }
 end

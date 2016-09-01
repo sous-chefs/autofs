@@ -8,17 +8,19 @@ platforms:
 
 verifier:
   name: inspec
+  pty: true
+  # sudo_command: 'ssh -t'
 
 suites:
   - name: auto-master
     run_list:
-      - recipe[auto_master_test::default]
+      - recipe[auto_master::default]
   - name: map-entry
     run_list:
-      - recipe[map_entry_test::default]
+      - recipe[map_entry::default]
   - name: multi
     run_list:
-      - recipe[multi_test::default]
+      - recipe[multi::default]
   - name: nfs
     run_list:
-      - recipe[nfs_test::default]
+      - recipe[nfs::default]
