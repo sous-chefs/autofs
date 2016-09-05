@@ -35,7 +35,8 @@ Resources
 
 Add entries directly to auto.master
 ```
-automaster_entry '/smb', '/etc/auto.smb' do
+automaster_entry '/smb' do
+  map '/etc/auto.smb'
   options '--timeout 600'
 end
 ```
@@ -62,11 +63,11 @@ end
 License and Author
 ==================
 
-* Author: Dan Webb (<d.webb@derby.ac.uk>)
-* Author: Luke Bradbury (<luke.bradbury@derby.ac.uk>)
+* Author: Dan Webb (<dan.webb@damacus.io>)
+* Author: Luke Bradbury (<luke@nqyr.io>)
+* Author: Richard Lock (<r.j.lock@derby.ac.uk>)
 
-
-Copyright: 2015, University of Derby
+Copyright: 2016, University of Derby
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
