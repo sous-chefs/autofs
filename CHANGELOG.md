@@ -1,6 +1,6 @@
 AutoFS Cookbook CHANGELOG
 ========================
-v2.0.0 (2016-08-31)
+v2.0.0 (2016-09-05)
 Refactored to use new resource model with compat_resource (#18).
 
 v1.0.3 (2015-05-11)

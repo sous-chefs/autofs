@@ -1,5 +1,4 @@
 ---
-
 provisioner:
   name: chef_zero
 
@@ -9,18 +8,21 @@ platforms:
 verifier:
   name: inspec
   pty: true
-  # sudo_command: 'ssh -t'
 
 suites:
   - name: auto-master
     run_list:
-      - recipe[auto_master::default]
+      - recipe[kitchen_sudoers::default]
+      - recipe[auto_master_test::default]
   - name: map-entry
     run_list:
-      - recipe[map_entry::default]
+      - recipe[kitchen_sudoers::default]
+      - recipe[map_entry_test::default]
   - name: multi
     run_list:
-      - recipe[multi::default]
+      - recipe[kitchen_sudoers::default]
+      - recipe[multi_test::default]
   - name: nfs
     run_list:
-      - recipe[nfs::default]
+      - recipe[kitchen_sudoers::default]
+      - recipe[nfs_test::default]
