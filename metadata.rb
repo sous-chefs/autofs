@@ -2,7 +2,7 @@ name 'autofs'
 maintainer 'University of Derby'
 maintainer_email 'serverteam@derby.ac.uk'
 description 'Configures the autofs service'
-version '2.0.0'
+version '2.0.1'
 source_url 'https://github.com/universityofderby/chef-autofs'
 issues_url 'https://github.com/universityofderby/chef-autofs/issues'
 

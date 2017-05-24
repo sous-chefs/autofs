@@ -12,7 +12,7 @@ property :server, String
 
 action :create do
   map_entry new_resource.mount_point do
-    fstype 'nfs4'
+    fstype new_resource.fstype
     location new_resource.location
     map new_resource.map
     mount_point new_resource.key
