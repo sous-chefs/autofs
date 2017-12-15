@@ -9,7 +9,7 @@ action :create do
   package 'autofs'
 
   service 'autofs' do
-    action [:enable, :start]
+    action %i[enable start]
   end
 
   file '/etc/auto.master'
