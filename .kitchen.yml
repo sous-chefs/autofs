@@ -1,13 +1,16 @@
 ---
+driver:
+  name: vagrant
+
 provisioner:
   name: chef_zero
 
 platforms:
-  - name: centos-6
+  - name: centos-6.9
+  - name: centos-7.4
 
 verifier:
   name: inspec
-  pty: true
 
 suites:
   - name: auto-master

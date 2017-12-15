@@ -1,5 +1,8 @@
 AutoFS Cookbook CHANGELOG
 ========================
+v2.0.2 (2017-12-13)
+Updated cookbook versions in metadata and fixed rubocop warnings.
+
 v2.0.1 (2017-05-24)
 Updated nfs resource to use fstype property.
 
