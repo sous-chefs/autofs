@@ -1,7 +1,7 @@
 resource_name :map_entry
 default_action :create
 
-property :fstype, String
+property :fstype, String, default: 'nfs4'
 property :key, String, name_property: true
 property :location, String
 property :map, String, required: true
@@ -15,7 +15,7 @@ action :create do # rubocop:disable Metrics/BlockLength
     map new_resource.map
   end
 
-  opts = if options.nil?
+  opts = if !options
            fstype
          else
            [fstype, options].join(',')
@@ -28,7 +28,7 @@ action :create do # rubocop:disable Metrics/BlockLength
   replace_or_add key do
     line "#{key} -fstype=#{opts} #{location}"
     path map
-    pattern "#{key}.*"
+    pattern "#{Regexp.escape(key)}\s.*"
     notifies :reload, 'service[autofs]'
   end
 

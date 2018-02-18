@@ -1,5 +1,8 @@
 AutoFS Cookbook CHANGELOG
 ========================
+v2.1.0 (2018-02-08)
+Support wildcard maps and improve robustness (regex matching)
+
 v2.0.2 (2017-12-13)
 Updated cookbook versions in metadata and fixed rubocop warnings.
 
