@@ -66,8 +66,11 @@ License and Author
 * Author: Dan Webb (<dan.webb@damacus.io>)
 * Author: Luke Bradbury (<luke@nqyr.io>)
 * Author: Richard Lock (<r.j.lock@derby.ac.uk>)
+* Author: James E. Flemer (<james.flemer@ndpgroup.com>)
 
 Copyright: 2016, University of Derby
+
+Copyright: 2018, NDP, LLC
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

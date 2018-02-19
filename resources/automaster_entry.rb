@@ -15,9 +15,9 @@ action :create do
   file '/etc/auto.master'
 
   replace_or_add mount_point do
-    line "#{mount_point} #{map} #{options}"
+    line "#{mount_point} #{map} #{options}".strip
     path '/etc/auto.master'
-    pattern "#{mount_point} #{map}.*"
+    pattern "#{Regexp.escape(mount_point)} #{Regexp.escape(map)}(\s.*|$)"
     notifies :reload, 'service[autofs]'
   end
 end
