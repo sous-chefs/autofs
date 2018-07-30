@@ -9,30 +9,30 @@ property :mount_point, String, default: lazy { '/' + map.match(/(?:\.)(.*)/).cap
 property :options, String
 
 action :create do # rubocop:disable Metrics/BlockLength
-  file map
+  file new_resource.map
 
-  automaster_entry mount_point do
+  automaster_entry new_resource.mount_point do
     map new_resource.map
   end
 
-  opts = if !options
-           fstype
+  opts = if !new_resource.options
+           new_resource.fstype
          else
-           [fstype, options].join(',')
+           [new_resource.fstype, new_resource.options].join(',')
          end
 
   service 'autofs' do
     action :nothing
   end
 
-  replace_or_add key do
-    line "#{key} -fstype=#{opts} #{location}"
-    path map
-    pattern "#{Regexp.escape(key)}\s.*"
+  replace_or_add new_resource.key do
+    line "#{new_resource.key} -fstype=#{opts} #{new_resource.location}"
+    path new_resource.map
+    pattern "#{Regexp.escape(new_resource.key)}\s.*"
     notifies :reload, 'service[autofs]'
   end
 
-  case fstype
+  case new_resource.fstype
   when 'nfs4'
     include_recipe 'chef-sugar'
     debian? ? (package 'nfs-common') : (package 'nfs-utils')
