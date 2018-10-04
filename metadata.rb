@@ -10,5 +10,6 @@ chef_version '>= 12'
 supports 'redhat'
 
 depends 'compat_resource', '~> 12.14'
-depends 'chef-sugar' #, '~> 3.4'
+depends 'chef-sugar', '>= 3.4'
+depends 'chef-sugar', '<= 4.0.0'
 depends 'line', '~> 1.0'
