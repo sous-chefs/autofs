@@ -1,5 +1,8 @@
 AutoFS Cookbook CHANGELOG
 ========================
+v2.2.0 (2019-08-22)
+Support for Chef 14.
+
 v2.1.0 (2018-02-08)
 Support wildcard maps and improve robustness (regex matching)
 
