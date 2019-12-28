@@ -34,8 +34,11 @@ action :create do # rubocop:disable Metrics/BlockLength
 
   case new_resource.fstype
   when 'nfs4'
-    include_recipe 'chef-sugar'
-    debian? ? (package 'nfs-common') : (package 'nfs-utils')
+    if platform_family? 'debian'
+      package 'nfs-common'
+    else
+      package 'nfs-utils'
+    end
   else
     log 'NFS type not set or supported' do
       message 'NFS type not set or supported'
