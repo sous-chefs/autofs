@@ -1,5 +1,8 @@
 AutoFS Cookbook CHANGELOG
 ========================
+v2.2.1 (2019-12-30)
+Removed dependency on chef-sugar.
+
 v2.2.0 (2019-08-22)
 Support for Chef 14.
 
