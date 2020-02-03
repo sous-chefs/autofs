@@ -1,5 +1,8 @@
 AutoFS Cookbook CHANGELOG
 ========================
+v2.2.2 (2020-02-03)
+In map_entry use find_resource to conditionally create the automaster_entry.
+
 v2.2.1 (2019-12-30)
 Removed dependency on chef-sugar.
 
