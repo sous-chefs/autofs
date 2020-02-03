@@ -11,7 +11,9 @@ property :options, String
 action :create do # rubocop:disable Metrics/BlockLength
   file new_resource.map
 
-  automaster_entry new_resource.mount_point do
+  # the automaster_entry may have already been created (with options)
+  # so only create it if it doesn't exist
+  find_resource(:automaster_entry, new_resource.mount_point) do
     map new_resource.map
   end
 
