@@ -8,7 +8,7 @@ property :map, String, required: true
 property :mount_point, String, default: lazy { '/' + map.match(/(?:\.)(.*)/).captures.first }
 property :options, String
 
-action :create do # rubocop:disable Metrics/BlockLength
+action :create do
   file new_resource.map
 
   # the automaster_entry may have already been created (with options)
