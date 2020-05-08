@@ -5,9 +5,9 @@ driver:
 provisioner:
   name: chef_zero
   product_name: chef
-  product_version: <%= ENV['CHEF_VERSION'] || ':latest' %>
-  client_rb:
-    chef_license: accept
+  product_version: <%= ENV['CHEF_VERSION'] || 'latest' %>
+  deprecations_as_errors: true
+  chef_license: accept-no-persist
 
 platforms:
   - name: centos-6.9
