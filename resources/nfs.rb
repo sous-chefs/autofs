@@ -1,4 +1,5 @@
 resource_name :nfs
+provides :nfs
 default_action :create
 
 property :export, String

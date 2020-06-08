@@ -10,4 +10,4 @@ chef_version '>= 12'
 supports 'redhat'
 
 depends 'compat_resource', '~> 12.14'
-depends 'line', '~> 1.0'
+depends 'line', '~> 2.0'

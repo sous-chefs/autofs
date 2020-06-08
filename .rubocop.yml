@@ -3,9 +3,12 @@ AllCops:
     - .kitchen/**/*
     - Guardfile
     - vendor/**/*
-Encoding:
+Style/Encoding:
   Enabled: false
-LineLength:
+Metrics/BlockLength:
   Enabled: false
-RescueModifier:
+Metrics/LineLength:
   Enabled: false
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    "%i": "()"

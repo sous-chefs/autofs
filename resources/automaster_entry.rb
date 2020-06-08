@@ -1,4 +1,5 @@
 resource_name :automaster_entry
+provides :automaster_entry
 default_action :create
 
 property :map, String, required: true
@@ -9,7 +10,7 @@ action :create do
   package 'autofs'
 
   service 'autofs' do
-    action %i[enable start]
+    action %i(enable start)
   end
 
   file '/etc/auto.master'
