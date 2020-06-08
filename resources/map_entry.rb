@@ -1,4 +1,5 @@
 resource_name :map_entry
+provides :map_entry
 default_action :create
 
 property :fstype, String, default: 'nfs4'

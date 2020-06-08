@@ -1,4 +1,5 @@
 resource_name :automaster_entry
+provides :automaster_entry
 default_action :create
 
 property :map, String, required: true
