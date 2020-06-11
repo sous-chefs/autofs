@@ -17,5 +17,4 @@ supports 'amazon'
 supports 'scientific'
 supports 'oracle'
 
-depends 'compat_resource', '~> 12.14'
 depends 'line', '~> 2.0'
