@@ -10,8 +10,13 @@ provisioner:
   chef_license: accept-no-persist
 
 platforms:
+  - name: debian-9
+  - name: debian-10
+  - name: ubuntu-18.04
+  - name: ubuntu-20.04
   - name: centos-7
   - name: centos-8
+  - name: amazonlinux-2
 
 verifier:
   name: inspec
