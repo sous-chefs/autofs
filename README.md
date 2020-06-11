@@ -1,5 +1,4 @@
 # AutoFS Cookbook
-===============
 
 [![Cookbook Version](https://img.shields.io/cookbook/v/autofs.svg?style=flat)](https://supermarket.chef.io/cookbooks/autofs)
 [![CI State](https://github.com/sous-chefs/autofs/workflows/ci/badge.svg)](https://github.com/sous-chefs/autofs/actions?query=workflow%3Aci)
@@ -12,7 +11,7 @@
 The AutoFS cookbook is a resource cookbook.
 
 This cookbook configures clients that use autofs
-See: http://linux.die.net/man/8/automount
+See: <http://linux.die.net/man/8/automount>
 
 This cookbook does not concern itself with managing an NFS server.
 
