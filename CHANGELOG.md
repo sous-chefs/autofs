@@ -1,6 +1,6 @@
 # AutoFS Cookbook CHANGELOG
 
-## Unreleased
+## 2.3.0
 
 - Transfered cookbook to Sous-Chefs
 - Standardised files
@@ -9,7 +9,7 @@
 - Added support for Centos-8
 - Removed support for Centos-6
 - Added Dokken testing
-- Min Chef version is now 15
+- Min Chef version is now 12.21
 
 ## 2.2.2 (2020-02-03)
 

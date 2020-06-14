@@ -24,17 +24,17 @@ verifier:
 suites:
   - name: auto-master
     run_list:
-      - recipe[kitchen_sudoers::default]
-      - recipe[auto_master_test::default]
+      - recipe[test::kitchen_sudoers]
+      - recipe[test::auto_master_test]
   - name: map-entry
     run_list:
-      - recipe[kitchen_sudoers::default]
-      - recipe[map_entry_test::default]
+      - recipe[test::kitchen_sudoers]
+      - recipe[test::map_entry]
   - name: multi
     run_list:
-      - recipe[kitchen_sudoers::default]
-      - recipe[multi_test::default]
+      - recipe[test::kitchen_sudoers]
+      - recipe[test::multi]
   - name: nfs
     run_list:
-      - recipe[kitchen_sudoers::default]
-      - recipe[nfs_test::default]
+      - recipe[test::kitchen_sudoers]
+      - recipe[test::nfs]

@@ -12,7 +12,7 @@ end
 nfs '/nfs/userhome' do
   server 'nfsserver'
   export 'export'
-  fstype 'nfs'
+  fstype 'nfs4'
   map '/etc/auto.nfs'
   options 'rw,hard,intr,sync'
 end

@@ -45,7 +45,7 @@ action :create do
   else
     log 'NFS type not set or supported' do
       message 'NFS type not set or supported'
-      level :debug
+      level :error
     end
   end
 end
