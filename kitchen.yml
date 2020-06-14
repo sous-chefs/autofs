@@ -25,7 +25,7 @@ suites:
   - name: auto-master
     run_list:
       - recipe[test::kitchen_sudoers]
-      - recipe[test::auto_master_test]
+      - recipe[test::auto_master]
   - name: map-entry
     run_list:
       - recipe[test::kitchen_sudoers]
