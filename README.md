@@ -17,7 +17,7 @@ This cookbook does not concern itself with managing an NFS server.
 
 ## Requirements
 
-- Chef 15 or higher
+- Chef Infra Client 12.21 or higher
 
 ## Platforms
 
