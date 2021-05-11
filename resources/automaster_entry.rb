@@ -1,5 +1,6 @@
 resource_name :automaster_entry
 provides :automaster_entry
+unified_mode true
 default_action :create
 
 property :map, String, required: true

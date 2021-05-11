@@ -1,5 +1,11 @@
 # AutoFS Cookbook CHANGELOG
 
+## Unreleased
+
+- resolved cookstyle error: resources/automaster_entry.rb:1:1 refactor: `Chef/Deprecations/ResourceWithoutUnifiedTrue`
+- resolved cookstyle error: resources/map_entry.rb:1:1 refactor: `Chef/Deprecations/ResourceWithoutUnifiedTrue`
+- resolved cookstyle error: resources/nfs.rb:1:1 refactor: `Chef/Deprecations/ResourceWithoutUnifiedTrue`
+
 ## 2.3.0
 
 - Transfered cookbook to Sous-Chefs

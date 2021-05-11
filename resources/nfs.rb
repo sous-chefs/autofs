@@ -1,5 +1,6 @@
 resource_name :nfs
 provides :nfs
+unified_mode true
 default_action :create
 
 property :export, String
