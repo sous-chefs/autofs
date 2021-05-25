@@ -1,6 +1,6 @@
 resource_name :nfs
 provides :nfs
-default_action :create
+unified_mode true
 
 property :export, String
 property :fstype, String, default: 'nfs4'

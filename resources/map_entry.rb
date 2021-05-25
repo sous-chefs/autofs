@@ -1,6 +1,6 @@
 resource_name :map_entry
 provides :map_entry
-default_action :create
+unified_mode true
 
 property :fstype, String, default: 'nfs4'
 property :key, String, name_property: true
