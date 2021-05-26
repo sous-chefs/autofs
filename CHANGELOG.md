@@ -1,5 +1,7 @@
 # AutoFS Cookbook CHANGELOG
 
+## Unreleased
+
 ## 3.0.0 - *2021-05-26*
 
 - Unpin the line cookbook so we use the latest version
