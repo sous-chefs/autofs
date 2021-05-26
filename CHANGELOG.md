@@ -1,5 +1,11 @@
 # AutoFS Cookbook CHANGELOG
 
+## unreleased
+
+- Unpin the line cookbook so we use the latest version
+- Add unified_mode true to all resources
+- Require Chef 15.3 for unified mode and Chef 17 support
+
 ## 2.3.0
 
 - Transfered cookbook to Sous-Chefs

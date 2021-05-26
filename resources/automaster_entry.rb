@@ -1,6 +1,6 @@
 resource_name :automaster_entry
 provides :automaster_entry
-default_action :create
+unified_mode true
 
 property :map, String, required: true
 property :mount_point, String, name_property: true
