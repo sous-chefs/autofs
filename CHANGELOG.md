@@ -1,5 +1,7 @@
 # AutoFS Cookbook CHANGELOG
 
+## Unreleased
+
 ## 3.0.1 - *2021-06-01*
 
 ## 3.0.0 - *2021-05-26*
