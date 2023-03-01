@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- Update workflows to 2.0.1
+- Remove mdl and replace with markdownlint-cli2
+
 ## 3.0.4 - *2023-02-14*
 
 ## 3.0.3 - *2023-02-14*
