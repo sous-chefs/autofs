@@ -1,5 +1,7 @@
 # AutoFS Cookbook CHANGELOG
 
+## Unreleased
+
 ## 3.0.7 - *2024-05-06*
 
 - Standardise files with files in sous-chefs/repo-management
