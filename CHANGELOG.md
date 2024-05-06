@@ -1,5 +1,7 @@
 # AutoFS Cookbook CHANGELOG
 
+## Unreleased
+
 ## 3.0.8 - *2024-05-06*
 
 ## 3.0.7 - *2024-05-06*
