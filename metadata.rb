@@ -6,7 +6,7 @@ description      'Installs/Configures autofs Server'
 source_url       'https://github.com/sous-chefs/autofs'
 issues_url       'https://github.com/sous-chefs/autofs/issues'
 chef_version     '>= 15.3'
-version          '3.0.9'
+version          '3.0.10'
 
 supports 'debian'
 supports 'ubuntu'
