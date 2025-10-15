@@ -1,98 +1,84 @@
 # AutoFS Cookbook CHANGELOG
 
-## Unreleased
-
-## 3.0.10 - *2025-09-04*
-
-## 3.0.9 - *2024-12-04*
-
-## 3.0.8 - *2024-05-06*
-
 ## 3.0.7 - *2024-05-06*
 
-- Standardise files with files in sous-chefs/repo-management
-
-## 3.0.6 - *2023-03-02*
+* Standardise files with files in sous-chefs/repo-management
 
 ## 3.0.5 - *2023-03-01*
 
-- Update workflows to 2.0.1
-- Remove mdl and replace with markdownlint-cli2
-
-## 3.0.4 - *2023-02-14*
+* Update workflows to 2.0.1
+* Remove mdl and replace with markdownlint-cli2
 
 ## 3.0.3 - *2023-02-14*
 
-- Remove delivery folder
+* Remove delivery folder
 
 ## 3.0.2 - *2021-08-17*
 
-- Standardise files with files in sous-chefs/repo-management
-
-## 3.0.1 - *2021-06-01*
+* Standardise files with files in sous-chefs/repo-management
 
 ## 3.0.0 - *2021-05-26*
 
-- Unpin the line cookbook so we use the latest version
-- Add unified_mode true to all resources
-- Require Chef 15.3 for unified mode and Chef 17 support
+* Unpin the line cookbook so we use the latest version
+* Add unified_mode true to all resources
+* Require Chef 15.3 for unified mode and Chef 17 support
 
 ## 2.3.0
 
-- Transfered cookbook to Sous-Chefs
-- Standardised files
-- Run latest cookstyle on cookbook
-- Added Github Actions for testing
-- Added support for Centos-8
-- Removed support for Centos-6
-- Added Dokken testing
-- Min Chef version is now 12.21
+* Transfered cookbook to Sous-Chefs
+* Standardised files
+* Run latest cookstyle on cookbook
+* Added Github Actions for testing
+* Added support for Centos-8
+* Removed support for Centos-6
+* Added Dokken testing
+* Min Chef version is now 12.21
 
 ## 2.2.2 (2020-02-03)
 
-- In map_entry use find_resource to conditionally create the automaster_entry.
+* In map_entry use find_resource to conditionally create the automaster_entry.
 
 ## 2.2.1 (2019-12-30)
 
-- Removed dependency on chef-sugar.
+* Removed dependency on chef-sugar.
 
 ## 2.2.0 (2019-08-22)
 
-- Support for Chef 14.
+* Support for Chef 14.
 
 ## 2.1.0 (2018-02-08)
 
-- Support wildcard maps and improve robustness (regex matching)
+* Support wildcard maps and improve robustness (regex matching)
 
 ## 2.0.2 (2017-12-13)
 
-- Updated cookbook versions in metadata and fixed rubocop warnings.
+* Updated cookbook versions in metadata and fixed rubocop warnings.
 
 ## 2.0.1 (2017-05-24)
 
-- Updated nfs resource to use fstype property.
+* Updated nfs resource to use fstype property.
 
 ## 2.0.0 (2016-09-05)
 
-- Refactored to use new resource model with compat_resource (#18).
+* Refactored to use new resource model with compat_resource (#18).
 
 ## 1.0.3 (2015-05-11)
 
-- Bug: #9 duplicate entries for the same mountpoint.
+* Bug: #9 duplicate entries for the same mountpoint.
 
 ## 1.0.2 (2015-04-24)
 
-- Bug: line matching does not work.
+* Bug: line matching does not work.
 
 ## 1.0.1 (2015-04-20)
 
-- Refactored NFS block to change order at which packages are installed.
+* Refactored NFS block to change order at which packages are installed.
 
 ## 0.2.2 (2015-03-12)
 
-- Bugs #4 & #5 fixed and small amount of rubocop.
+* Bugs #4 & #5 fixed and small amount of rubocop.
 
 ## 0.2.0 (2015-02-27)
 
-- Refactored entire cookbook to a resource model <https://github.com/chef-cookbooks/resource>.
-- Cookbook now supports less platforms as there are currently no tests for SmartOS and Solaris2. If you would like support for these platform, please submit a PR respective tests.
+* Refactored entire cookbook to a resource model <https://github.com/chef-cookbooks/resource>.
+* Cookbook now supports less platforms as there are currently no tests for SmartOS and Solaris2. If you would like support for these platform, please submit a PR respective tests.
