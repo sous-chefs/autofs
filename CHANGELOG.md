@@ -1,5 +1,12 @@
 # AutoFS Cookbook CHANGELOG
 
+## [3.1.0](https://github.com/sous-chefs/autofs/compare/3.0.10...v3.1.0) (2025-10-15)
+
+
+### Features
+
+* **ci:** migrate to reusable workflows v4.1.0 ([#76](https://github.com/sous-chefs/autofs/issues/76)) ([09877d6](https://github.com/sous-chefs/autofs/commit/09877d6ce31fd726107c4ce6a56ab45f6eff5ec6))
+
 ## 3.0.7 - *2024-05-06*
 
 * Standardise files with files in sous-chefs/repo-management
