@@ -1,3 +1,5 @@
+apt_update
+
 # Work around for the kitchen Verifier requiring TTY for sudo
 execute 'Set !require tty for kitchen user' do
   action :run

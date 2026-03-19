@@ -1,3 +1,5 @@
+apt_update
+
 map_entry 'userhome' do
   fstype 'smb'
   location 'smbserver:export'

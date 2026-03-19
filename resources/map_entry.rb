@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 resource_name :map_entry
 provides :map_entry
 unified_mode true

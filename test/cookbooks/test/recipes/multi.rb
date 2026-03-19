@@ -1,3 +1,5 @@
+apt_update
+
 automaster_entry '/home' do
   map '/awesome_perl_script.pl'
   options 'nfsvers=3 --timeout=600'
