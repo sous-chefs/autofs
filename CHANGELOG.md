@@ -1,5 +1,12 @@
 # AutoFS Cookbook CHANGELOG
 
+## [3.1.1](https://github.com/sous-chefs/autofs/compare/v3.1.0...v3.1.1) (2026-03-19)
+
+
+### Bug Fixes
+
+* add frozen_string_literal, update EOL platforms, add apt_update to test recipes ([#572](https://github.com/sous-chefs/autofs/issues/572)) ([cc117a1](https://github.com/sous-chefs/autofs/commit/cc117a1c79e25c811e960c5f6fcea630cfc7ab28))
+
 ## [3.1.0](https://github.com/sous-chefs/autofs/compare/3.0.10...v3.1.0) (2025-10-15)
 
 
