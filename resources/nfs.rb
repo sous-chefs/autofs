@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 resource_name :nfs
 provides :nfs
 unified_mode true

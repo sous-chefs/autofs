@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 resource_name :automaster_entry
 provides :automaster_entry
 unified_mode true
