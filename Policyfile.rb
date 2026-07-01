@@ -1,0 +1,15 @@
+# frozen_string_literal: true
+
+name 'autofs'
+
+run_list 'recipe[test::kitchen_sudoers]', 'recipe[test::auto_master]'
+
+cookbook 'autofs', path: '.'
+cookbook 'line', git: 'https://github.com/sous-chefs/line.git', branch: 'main'
+cookbook 'test', path: './test/cookbooks/test'
+
+Dir.children('./test/cookbooks/test/recipes').grep(/\.rb\z/).sort.each do |recipe|
+  recipe_name = File.basename(recipe, '.rb')
+
+  named_run_list recipe_name.to_sym, 'recipe[test::kitchen_sudoers]', 'recipe[test::' + recipe_name + ']'
+end
