@@ -28,18 +28,26 @@ verifier:
 
 suites:
   - name: auto-master
+    provisioner:
+      named_run_list: auto_master
     run_list:
       - recipe[test::kitchen_sudoers]
       - recipe[test::auto_master]
   - name: map-entry
+    provisioner:
+      named_run_list: map_entry
     run_list:
       - recipe[test::kitchen_sudoers]
       - recipe[test::map_entry]
   - name: multi
+    provisioner:
+      named_run_list: multi
     run_list:
       - recipe[test::kitchen_sudoers]
       - recipe[test::multi]
   - name: nfs
+    provisioner:
+      named_run_list: nfs
     run_list:
       - recipe[test::kitchen_sudoers]
       - recipe[test::nfs]
