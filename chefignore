@@ -83,8 +83,8 @@ test/*
 */.hg/*
 */.svn/*
 
-# Berkshelf #
-#############
+# Dependency cache #
+####################
 cookbooks/*
 tmp
 
